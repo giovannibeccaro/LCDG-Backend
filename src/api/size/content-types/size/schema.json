@@ -4,21 +4,22 @@
   "info": {
     "singularName": "size",
     "pluralName": "sizes",
-    "displayName": "size"
+    "displayName": "size",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "products": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::product.product",
-      "mappedBy": "sizes"
-    },
     "name": {
       "type": "string"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product.product",
+      "inversedBy": "sizes"
     }
   }
 }

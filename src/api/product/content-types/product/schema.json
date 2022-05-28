@@ -17,12 +17,6 @@
       "required": true,
       "unique": true
     },
-    "sizes": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::size.size",
-      "inversedBy": "products"
-    },
     "available": {
       "type": "boolean",
       "default": true,
@@ -32,11 +26,42 @@
       "type": "media",
       "multiple": true,
       "required": true,
-      "allowedTypes": ["images", "files", "videos", "audios"]
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
     },
     "gender": {
       "type": "enumeration",
-      "enum": ["Maschio", "Femmina"]
+      "enum": [
+        "Maschio",
+        "Femmina"
+      ]
+    },
+    "sizes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::size.size",
+      "mappedBy": "product"
+    },
+    "material": {
+      "type": "string",
+      "required": true
+    },
+    "brand": {
+      "type": "string",
+      "required": true
+    },
+    "season": {
+      "type": "enumeration",
+      "enum": [
+        "Primavera / Estate",
+        "Autunno / Inverno"
+      ],
+      "required": true,
+      "default": "Primavera / Estate"
     }
   }
 }
